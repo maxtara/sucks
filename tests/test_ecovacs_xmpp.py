@@ -15,7 +15,7 @@ def test_wrap_command():
     assert_true(search(r'to="E0000000001234567890@126.ecorobot.net/atom"', c))    
     #Convert to XML to make it easy to see if id was added to ctl
     xml_test = ET.fromstring(c)
-    ctl = xml_test.getchildren()[0][0]
+    ctl = list(xml_test)[0][0]
     assert_true(ctl.get("id")) #Check that an id was added to ctl    
 
     #Test if customid is added to ctl
@@ -24,7 +24,7 @@ def test_wrap_command():
     c = str(x._wrap_command(cwithid, 'E0000000001234567890@126.ecorobot.net/atom'))    
     #Convert to XML to make it easy to see if id was added to ctl
     xml_test = ET.fromstring(c)
-    ctl = xml_test.getchildren()[0][0]
+    ctl = list(xml_test)[0][0]
     assert_equals(ctl.get("id"), "12345678") #Check that an id was added to ctl    
 
 

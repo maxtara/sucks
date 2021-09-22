@@ -4,7 +4,9 @@ Windows: [![Build Status](https://ci.appveyor.com/api/projects/status/github/wpi
 
 sucks
 =====
-
+  
+**Fork of bmartin5692/sucks, updated to python3.9, and added a docker image to run clean every day.**
+  
 A simple command-line python script to drive a robot vacuum. Currently
 known to work with the Ecovacs Deebot N79, M80 Pro, M81, M88
 Pro, and R95 MKII from both North America and Europe.
@@ -124,9 +126,31 @@ do join the [mailing list](https://groups.google.com/forum/#!forum/sucks-users)
 to discuss your plans.
 
 For more information see [the development documentation](developing.md).
+  
+## Docker
 
+### docker-compose
+```
+  sucks:
+    container_name: sucks
+    image: maxtara/sucks
+    restart: unless-stopped
+    environment:
+      SUCKS_EMAIL: email@gmail.com
+      SUCKS_PASSWORD: password
+      SUCKS_CC: au
+      SUCKS_CONT: eu
 
-
+```
+  
+### Build
+```
+docker build -t sucks .
+# Deploy
+docker tag sucks maxtara/sucks:latest
+docker push maxtara/sucks
+```
+  
 ## See also
 
 There are now similar libraries in [Javascript](https://github.com/joostth/sucks.js)
