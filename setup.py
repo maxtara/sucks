@@ -64,7 +64,7 @@ setup(
 
     install_requires=[
         'sleekxmppfs>=1.3.4',
-        'click>=6',
+        'click==8.0.3',
         'requests>=2.18',
         'pycryptodome>=3.4',
         'pycountry-convert>=0.5',
